@@ -31,9 +31,10 @@ jobs:
       - name: Build Images
         run: ./gradlew jlink
 
-      - name: Create a Release
-        uses: elgohr/Github-Release-Action@v4
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
         with:
-          title: MyFirstRelease
+          files: |
+            Release.txt
+            LICENSE
