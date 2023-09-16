@@ -32,8 +32,12 @@ jobs:
 
       - name: Build with gradle
         run: ./gradlew build
-      - name: Build Images
+
+      - name: Build Native Images
         run: ./gradlew jlink
+
+      - name: Pack application
+        run: ./gradlew jpackage
 
       - name: List files in the repository
         run: |
