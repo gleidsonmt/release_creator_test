@@ -41,4 +41,4 @@ jobs:
 
       - name: List files in the repository
         run: |
-          ls ${{ github.workspace }}/build
+          ls ${{ github.workspace }}/build/jpackage
