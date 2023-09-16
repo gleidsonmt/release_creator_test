@@ -35,8 +35,6 @@ jobs:
       - name: Build Images
         run: ./gradlew jlink
 
-
-      - name: List files in the build
+      - name: List files in the repository
         run: |
-          ls ${{ github.workspace/build }}
-
+          ls ${{ github.workspace }}
