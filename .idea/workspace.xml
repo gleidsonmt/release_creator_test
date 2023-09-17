@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="33aac491-18a5-4881-9199-2b686a7d0bff" name="Changes" comment="testing automatic releases">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/build.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/build.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,8 +61,8 @@
       <recent name="C:\Users\Gleidson\IdeaProjects\release_creator_test\.github\workflows" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.release_creator_test [jpackage]">
-    <configuration name="release_creator_test [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Gradle.release_creator_test [packageDistribution]">
+    <configuration name="release_creator_test [createZip]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -72,7 +73,7 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value="clean" />
+            <option value="createZip" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -83,7 +84,7 @@
       <RunAsTest>false</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="release_creator_test [jlink]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="release_creator_test [distTar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -94,7 +95,29 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value="jlink" />
+            <option value="distTar" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="release_creator_test [jlinkZip]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="jlinkZip" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -127,7 +150,7 @@
       <RunAsTest>false</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="release_creator_test [run]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="release_creator_test [packageDistribution]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -138,7 +161,7 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value="run" />
+            <option value="packageDistribution" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -151,10 +174,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.release_creator_test [packageDistribution]" />
+        <item itemvalue="Gradle.release_creator_test [jlinkZip]" />
+        <item itemvalue="Gradle.release_creator_test [createZip]" />
+        <item itemvalue="Gradle.release_creator_test [distTar]" />
         <item itemvalue="Gradle.release_creator_test [jpackage]" />
-        <item itemvalue="Gradle.release_creator_test [jlink]" />
-        <item itemvalue="Gradle.release_creator_test [clean]" />
-        <item itemvalue="Gradle.release_creator_test [run]" />
       </list>
     </recent_temporary>
   </component>
@@ -166,14 +190,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1694894481762</updated>
-    </task>
-    <task id="LOCAL-00005" summary="creating empty release">
-      <option name="closed" value="true" />
-      <created>1694895816720</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1694895816720</updated>
     </task>
     <task id="LOCAL-00006" summary="creating empty release">
       <option name="closed" value="true" />
@@ -559,7 +575,15 @@
       <option name="project" value="LOCAL" />
       <updated>1694913492473</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="testing automatic releases">
+      <option name="closed" value="true" />
+      <created>1694913745578</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1694913745578</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

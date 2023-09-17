@@ -96,3 +96,10 @@ jlink {
 jlinkZip {
     group = 'distribution'
 }
+
+task packageDistribution(type: Zip) {
+    archiveFileName = "app.zip"
+    destinationDirectory = file("/buid/distributions")
+
+    from "/build/jpackage/*"
+}
