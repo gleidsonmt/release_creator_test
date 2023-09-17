@@ -70,9 +70,11 @@ jobs:
           key: ${{ runner.os }}-${{ steps.system_info.outputs.release }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: ${{ runner.os }}-${{ steps.system_info.outputs.release }}-node-
 
-#      - run: echo ${{ steps.system_info.outputs.platform }}
-#      - run: echo ${{ steps.system_info.outputs.release }}
-#      - run: echo ${{ steps.system_info.outputs.name }}
+      - run: echo ${{ steps.system_info.outputs.platform }}
+      - run: echo ${{ steps.system_info.outputs.release }}
+      - run: echo ${{ steps.system_info.outputs.name }}
+      - run: echo ${{ steps.system_info.outputs.hostname }}
+
 
       - name: Create Release
         id: create_release
@@ -84,7 +86,6 @@ jobs:
           release_name: Release ${{ steps.system_info.outputs.platform }} v${{ steps.version.outputs.majorVersion }}.${{ steps.version.outputs.minorVersion }}.${{ steps.version.outputs.buildNumber }}
           draft: false
           prerelease: false
-          body_path: Release.txt
 #
 #
 #      - name: Upload Release Asset
