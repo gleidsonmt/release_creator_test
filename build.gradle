@@ -80,6 +80,8 @@ test {
     useJUnitPlatform()
 }
 
+def system_name = "";
+
 jlink {
 
 
@@ -103,6 +105,7 @@ jlink {
 
         if (System.properties['os.name'].toLowerCase().contains('windows')) {
             println "it's Windows"
+
 //            imageOptions = [
 //                    '--icon', 'logo_256.ico'
 //            ]
@@ -126,20 +129,12 @@ jlink {
 
             installerOptions
                     = ["--verbose",
-//                    '--mac-sign', 'false',
                     '--name', 'app',
-//                    '--type', 'app-image',
-//                    '--mac-signing-key-user-name', 'Gleidson'
-//                    '--identifier', 'app'
                     "--mac-package-identifier", "app"
 //                    "--vendor", "Gleidson Neves da Silveira",
 //                    " --mac-package-name JabRef", "Gleidson",
 
-//                    "--mac-signing-key-user-name", "JabRef e.V. (6792V39SK3)"
-
-
             ]
-//            identifier = appName
             addExtraDependencies("javafx")
         }
 
@@ -158,24 +153,24 @@ def compiler = javaToolchains.compilerFor {
     languageVersion.set(JavaLanguageVersion.of(JavaVersion.VERSION_17.majorVersion))
 }
 
-task copyDependencies(type: Copy) {
-    dependsOn 'jlink'
-    from(configurations.runtimeClasspath)
-    into("$buildDir/libs")
-}
+//task copyDependencies(type: Copy) {
+//    dependsOn 'jlink'
+//    from(configurations.runtimeClasspath)
+//    into("$buildDir/libs")
+//}
 
-task packageApp(type: Exec) {
-    dependsOn 'copyDependencies'
-    def jdkHome = compiler.get().metadata.installationPath.asFile.absolutePath
-    commandLine "${jdkHome}/bin/jpackage"
-
-    args([
-            "-n", "fxBuildDemo",
-            "-p", "${buildDir}/libs",
-            "-d", "${buildDir}/installer",
-            "-m", 'io.github.gleidsonmt.release_creator_test/io.github.gleidsonmt.release_creator_test.HelloApplication'
-    ])
-}
+//task packageApp(type: Exec) {
+//    dependsOn 'copyDependencies'
+//    def jdkHome = compiler.get().metadata.installationPath.asFile.absolutePath
+//    commandLine "${jdkHome}/bin/jpackage"
+//
+//    args([
+//            "-n", "fxBuildDemo",
+//            "-p", "${buildDir}/libs",
+//            "-d", "${buildDir}/installer",
+//            "-m", 'io.github.gleidsonmt.release_creator_test/io.github.gleidsonmt.release_creator_test.HelloApplication'
+//    ])
+//}
 
 //task packageAll() {
 //    dependsOn(listOf("build", "copyDependencies"))
@@ -192,12 +187,12 @@ jlinkZip {
     group = 'distribution'
 }
 
-//task packageApp(type: Zip) {
-//    archiveBaseName = "app-win"
-//    destinationDirectory = file("$buildDir/distributions")
-//
-//    from "$buildDir/jpackage"
-//    println "$buildDir/jpackage"
-//    group 'distribution'
-//}
+task packageApp(type: Zip) {
+    archiveBaseName = "app-" + System.properties['os.name'].replaceAll("[^a-zA-Z]", "").toLowerCase()
+    destinationDirectory = file("$buildDir/distributions")
+
+    from "$buildDir/jpackage"
+    println "$buildDir/jpackage"
+    group 'distribution'
+}
 
