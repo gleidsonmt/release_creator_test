@@ -126,6 +126,7 @@ jlink {
             installerOptions
                     = ["--verbose",
                     '--mac-sign',
+                    '--mac-signing-key-user-name', 'Gleidson'
 //                    '--identifier', 'app'
 //                    "--mac-package-identifier",
 //                    "Gleidson",
