@@ -34,9 +34,9 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
 
-#      - name: Build with gradle
-#        run: ./gradlew build -Pserver
-#
+      - name: Build with gradle
+        run: ./gradlew build -Pserver
+
 #      - name: Build Native Images
 #        run: ./gradlew jlink -Pserver
 #
