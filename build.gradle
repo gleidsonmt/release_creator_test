@@ -13,10 +13,10 @@ ext {
     _props.load(_propsFile.newDataInputStream())
 
     // Load act version from properties
-    project.version =
-            _props.getProperty("majorVersion") +
-                    "." + _props.getProperty("minorVersion") +
-                    "." + _props.getProperty("buildNumber")
+//    project.version =
+//            _props.getProperty("majorVersion") +
+//                    "." + _props.getProperty("minorVersion") +
+//                    "." + _props.getProperty("buildNumber")
 
     // Variables used in flows to update..
     propsFile = _propsFile
@@ -135,7 +135,7 @@ jlinkZip {
     group = 'distribution'
 }
 
-task packageApp(type: Zip) {
+task packageApp(type: Zip, dependsOn: incrementBuildArtifactVersion) {
     archiveBaseName = "app-win"
     destinationDirectory = file("$buildDir/distributions")
 
