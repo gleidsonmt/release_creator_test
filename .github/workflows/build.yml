@@ -49,12 +49,23 @@ jobs:
         run: |
           ls ${{ github.workspace }}/build/jpackage
 
-      - uses: "marvinpinto/action-automatic-releases@latest"
+      - name: Read value from properties file
+        id: read_property
+        uses: christian-draeger/read-properties@1.1.0
         with:
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          path: 'version.properties'
+          properties: 'minorVersion'
+
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: v${{ steps.read_property.outputs.buildNumber}}
+          release_name: ${{ steps.read_property.outputs.buildNumber}}
+          draft: false
           prerelease: false
-          files: |
-            LICENSE.txt
 
       - name: Upload Release Asset
         id: upload-release-asset

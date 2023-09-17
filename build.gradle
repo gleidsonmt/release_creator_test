@@ -6,8 +6,46 @@ plugins {
     id 'org.beryx.jlink' version '2.25.0'
 }
 
+ext {
+
+    Properties _props = new Properties()
+    File _propsFile = new File('./version.properties')
+    _props.load(_propsFile.newDataInputStream())
+
+    // Load act version from properties
+    project.version =
+            _props.getProperty("majorVersion") +
+                    "." + _props.getProperty("minorVersion") +
+                    "." + _props.getProperty("buildNumber")
+
+    // Variables used in flows to update..
+    propsFile = _propsFile
+    props = _props
+    buildV = _props.getProperty("buildNumber")
+
+    fullVersion = project.version
+}
+
+task incrementBuildArtifactVersion()  {
+    group 'build'
+    println 'incrementing build artifact'
+    println "update artifact"
+    int sum = (buildV as BigDecimal) + 1
+    props.setProperty('buildNumber', sum.toString())
+    println "Your new artifact version is ${props.getProperty("artifactBuildNumber")}"
+    props.store(propsFile.newWriter(), null)
+    props.load(propsFile.newDataInputStream())
+    println "Storing Properties."
+}
+
+
+ext.save = {
+    props.store(propsFile.newWriter(), null)
+    props.load(propsFile.newDataInputStream())
+    println "Storing Properties."
+}
+
 group 'io.github.gleidsonmt'
-version '1.0'
 
 repositories {
     mavenCentral()
@@ -105,3 +143,4 @@ task packageApp(type: Zip) {
     println "$buildDir/jpackage"
     group 'distribution'
 }
+
