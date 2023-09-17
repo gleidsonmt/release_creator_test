@@ -97,9 +97,11 @@ jlinkZip {
     group = 'distribution'
 }
 
-task packageDistribution(type: Zip) {
-    archiveFileName = "app.zip"
-    destinationDirectory = file("/buid/distributions")
+task packageApp(type: Zip) {
+    archiveBaseName = "app-win"
+    destinationDirectory = file("$buildDir/distributions")
 
-    from "/build/jpackage/*"
+    from "$buildDir/jpackage"
+    println "$buildDir/jpackage"
+    group 'distribution'
 }
