@@ -52,6 +52,7 @@ jobs:
           ls ${{ github.workspace }}/build/jlinkbase
           ls ${{ github.workspace }}/build/jlinkbase/jlinkjars
           ls ${{ github.workspace }}/build/libs
+          ls ${{ github.workspace }}/staging
 
 #      - name: Reading Properties
 #        uses: BrycensRanch/read-properties-action@v1
