@@ -76,8 +76,8 @@ jlink {
             println "it's linux"
         } else if(System.properties['os.name'].toLowerCase().contains('mac')) {
             println "it's mac"
-//            installerOptions = ["--identifier", appName]
-            identifier = appName
+            installerOptions = ["--identifier", appName]
+//            identifier = appName
         }
 
         addExtraDependencies("javafx")
