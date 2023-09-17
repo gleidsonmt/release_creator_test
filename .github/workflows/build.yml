@@ -49,17 +49,17 @@ jobs:
 #      - name: List files in the repository
 #        run: |
 #          ls ${{ github.workspace }}/build
-#
-#      - name: Reading Properties
-#        uses: BrycensRanch/read-properties-action@v1
-#        id: version
-#        with:
-#          file: version.properties
-#          all: true
-#
-#      - run: echo ${{ steps.version.outputs.majorVersion }} # Project's version from gradle.properties
-#      - run: echo ${{ steps.version.outputs.minorVersion }} # Project's groupID from gradle.properties
-#      - run: echo ${{ steps.version.outputs.buildNumber }} # Project's groupID from gradle.properties
+
+      - name: Reading Properties
+        uses: BrycensRanch/read-properties-action@v1
+        id: version
+        with:
+          file: version.properties
+          all: true
+
+      - run: echo ${{ steps.version.outputs.majorVersion }} # Project's version from gradle.properties
+      - run: echo ${{ steps.version.outputs.minorVersion }} # Project's groupID from gradle.properties
+      - run: echo ${{ steps.version.outputs.buildNumber }} # Project's groupID from gradle.properties
 
 
       - uses: kenchan0130/actions-system-info@master
