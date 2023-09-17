@@ -50,27 +50,28 @@ jobs:
 #        run: |
 #          ls ${{ github.workspace }}/build/jpackage
 
-      - name: Read value from Properties-file
-        id: read_property
-        uses: Reedyuk/read-properties@v1.0.1
+      - name: Reading Properties
+        uses: BrycensRanch/read-properties-action@latest
+        id: all
         with:
-          path: 'version.properties'
-          property: 'minorVersion', 'majorVersion'
-      - name: Do something with your bumped release version
-        run: echo ${{ steps.read_property.outputs.value }}
-          # will print "the value of 'the.key.of.the.property'"
+          file: gradle.properties
+          all: true
 
-#      - name: Create Release
-#        id: create_release
-#        uses: actions/create-release@v1
-#        env:
-#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#        with:
-#          tag_name: v${{ steps.read_property.outputs.buildNumber}}
-#          release_name: ${{ steps.read_property.outputs.buildNumber}}
-#          draft: false
-#          prerelease: false
-#
+      - run: echo ${{ steps.all.outputs.majorVersion }} # Project's version from gradle.properties
+      - run: echo ${{ steps.all.outputs.minorVersion }} # Project's groupID from gradle.properties
+      - run: echo ${{ steps.all.outputs.buildNumber }} # Project's groupID from gradle.properties
+
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: v${{ steps.read_property.outputs.buildNumber}}
+          release_name: ${{ steps.read_property.outputs.buildNumber}}
+          draft: false
+          prerelease: false
+
 #      - name: Upload Release Asset
 #        id: upload-release-asset
 #        uses: actions/upload-release-asset@v1
