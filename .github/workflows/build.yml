@@ -41,7 +41,7 @@ jobs:
         run: ./gradlew jlink -Pserver
 
       - name: Pack application
-        run: ./gradlew package -Pserver
+        run: ./gradlew jpackage -Pserver
 
 #      - name: Create Zip File From App and Runtime
 #        run: ./gradlew packageApp -Pserver
