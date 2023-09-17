@@ -26,16 +26,13 @@ ext {
     fullVersion = project.version
 }
 
-tasks.register('incrementBuildArtifactVersion') {
+task incrementBuildArtifactVersion()  {
     group 'build'
-    println "update artifact"
     if (!project.hasProperty("server")) {
         int sum = (buildV as BigDecimal) + 1
         props.setProperty('buildNumber', sum.toString())
-        println "Your new artifact version is ${props.getProperty("artifactBuildNumber")}"
         props.store(propsFile.newWriter(), null)
         props.load(propsFile.newDataInputStream())
-        println "Storing Properties."
     } else println 'skipping.. it is a server build..'
 }
 
