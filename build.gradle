@@ -55,30 +55,31 @@ jlink {
     jpackage {
 
         installerOptions = [
-                '--description', "project.description",
-                '--copyright', 'Copyrigth 2015-2019 WALCZAK.IT'
+                '--description', "Gleidson GithubActinos App",
+                '--copyright', 'Copyrigth 2022-2023 Gleidson Company'
         ]
 
         if (System.properties['os.name'].toLowerCase().contains('windows')) {
             println "it's Windows"
+//            imageOptions = [
+//                    '--icon', 'logo_256.ico'
+//            ]
+            installerType = 'exe'
+            installerOptions = [
+                    '--description', "A decorator stage for javafx apps.",
+                    '--copyright', 'Copyrigth © 2021-2022 GLEIDSON NEVES DA SILVEIRA'
+//                    , '--icon', 'logo_256.ico'
+
+            ]
         } else if(System.properties['os.name'].toLowerCase().contains('linux')) {
             println "it's linux"
         } else if(System.properties['os.name'].toLowerCase().contains('mac')) {
             println "it's mac"
+            installerOptions = [
+                    "--mac-sign", "--mac-package-identifier"
+            ]
         }
 
-//        if (targetPlatform("win")) {
-//            installerType = project.findProperty('installerType')
-//            println "installerType = $installerType"
-//        }
-//
-//        if(targetPlatform("mac")) {
-//
-//        }
-//
-//        if(targetPlatform("linux")) {
-//
-//        }
         addExtraDependencies("javafx")
     }
 
