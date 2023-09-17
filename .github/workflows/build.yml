@@ -57,7 +57,7 @@ jobs:
           path: 'version.properties'
           property: 'minorVersion'
       - name: Do something with your bumped release version
-        run: echo ${{ steps.read_property.outputs.value }}
+        run: echo ${{ steps.read_property.outputs.minorVersion }}
           # will print "the value of 'the.key.of.the.property'"
 
 #      - name: Create Release
