@@ -148,20 +148,35 @@ jlink {
 
 }
 
-//task<Copy>("copyDependencies") {
-//    from(configurations.runtimeClasspath)
-//    into("$buildDir/modules")
-//}
+java {
+    modularity.inferModulePath = true
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(19)
+    }
+}
 
-//task copyDependecies {
-//
-//    from (
-//        configurations.compileClasspath
-//    )
-//
-////    into("$buildDir/modules")
-//
-//}
+def compiler = javaToolchains.compilerFor {
+    languageVersion.set(JavaLanguageVersion.of(JavaVersion.VERSION_17.majorVersion))
+}
+
+task copyDependencies(type: Copy) {
+    from(configurations.runtimeClasspath)
+    into("$buildDir/libs")
+}
+
+task packageApp(type: Exec) {
+    dependsOn 'copyDependencies'
+    def jdkHome = compiler.get().metadata.installationPath.asFile.absolutePath
+    commandLine "${jdkHome}/bin/jpackage"
+
+    args([
+            "-n", "fxBuildDemo",
+            "-p", "${buildDir}/libs",
+            "-d", "${buildDir}/installer",
+            "-m", 'io.github.gleidsonmt.release_creator_test/io.github.gleidsonmt.release_creator_test.HelloApplication'
+    ])
+}
+
 //task packageAll() {
 //    dependsOn(listOf("build", "copyDependencies"))
 //    def jdkHome = compiler.get().metadata.installationPath.asFile.absolutePath
