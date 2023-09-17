@@ -35,16 +35,16 @@ jobs:
         run: chmod +x gradlew
 
       - name: Build with gradle
-        run: ./gradlew build
+        run: ./gradlew build -Pserver
 
       - name: Build Native Images
-        run: ./gradlew jlink
+        run: ./gradlew jlink -Pserver
 
       - name: Pack application
-        run: ./gradlew jpackage
+        run: ./gradlew jpackage -Pserver
 
       - name: Create Zip File From App and Runtime
-        run: ./gradlew packageApp
+        run: ./gradlew packageApp -Pserver
 
       - name: List files in the repository
         run: |
