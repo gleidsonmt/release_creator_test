@@ -122,11 +122,11 @@ jlink {
         } else if(System.properties['os.name'].toLowerCase().contains('mac')) {
             println "it's mac"
 //            installerType = 'pkg'
-//            identifier = 'app'
+            identifier = 'app'
 
             installerOptions
                     = ["--verbose",
-//                    '--mac-sign',
+                    '--mac-sign',
                     '--type', 'app-image',
 //                    '--mac-signing-key-user-name', 'Gleidson'
 //                    '--identifier', 'app'
