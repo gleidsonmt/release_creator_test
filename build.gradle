@@ -151,7 +151,7 @@ jlink {
 java {
     modularity.inferModulePath = true
     toolchain {
-        languageVersion = JavaLanguageVersion.of(19)
+        languageVersion = JavaLanguageVersion.of(17)
     }
 }
 
