@@ -81,7 +81,7 @@ jlink {
             println "it's linux"
         } else if(System.properties['os.name'].toLowerCase().contains('mac')) {
             println "it's mac"
-            installerOptions = ["--verbose", '--mac-sign', "--mac-package-identifier Gleidson"]
+            installerOptions = ["--verbose", '--mac-sign', "--mac-package-identifier", "Gleidson"]
 //            identifier = appName
         }
 
