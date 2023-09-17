@@ -121,10 +121,12 @@ jlink {
             ]
         } else if(System.properties['os.name'].toLowerCase().contains('mac')) {
             println "it's mac"
+//            installerType = 'pkg'
+
             installerOptions
                     = ["--verbose",
                     '--mac-sign',
-                    '--type', 'pkg',
+                    '--identifier', 'release_creator'
 //                    "--mac-package-identifier",
 //                    "Gleidson",
 //                    "--vendor", "Gleidson Neves da Silveira",
