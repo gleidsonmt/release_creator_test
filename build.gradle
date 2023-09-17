@@ -140,7 +140,7 @@ jlink {
 
 
             ]
-            identifier = appName
+//            identifier = appName
             addExtraDependencies("javafx")
         }
 
