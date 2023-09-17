@@ -43,6 +43,13 @@ jobs:
       - name: Pack application
         run: ./gradlew packageApp
 
+      - run: mkdir staging && cp app/build/installer/* staging
+      - name: upload build result
+        uses: actions/upload-artifact@v2
+        with:
+          name: FxDemoApp-${{matrix.os}}
+          path: staging
+
 #      - name: Create Zip File From App and Runtime
 #        run: ./gradlew packageApp -Pserver
 
