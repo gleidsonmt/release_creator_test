@@ -188,7 +188,7 @@ jlinkZip {
 }
 
 task packageApp(type: Zip) {
-    archiveBaseName = "app-" + System.properties['os.name'].replaceAll("[^a-zA-Z]", "").toLowerCase()
+    archiveBaseName = "app"
     destinationDirectory = file("$buildDir/distributions")
 
     from "$buildDir/jpackage"
