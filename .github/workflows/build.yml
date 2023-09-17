@@ -40,8 +40,8 @@ jobs:
       - name: Build Native Images
         run: ./gradlew jlink -Pserver
 
-      - name: Pack application
-        run: ./gradlew jpackage -Pserver
+#      - name: Pack application
+#        run: ./gradlew jpackage -Pserver
 
 #      - name: Create Zip File From App and Runtime
 #        run: ./gradlew packageApp -Pserver
