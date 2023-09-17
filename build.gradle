@@ -122,7 +122,8 @@ jlink {
         } else if(System.properties['os.name'].toLowerCase().contains('mac')) {
             println "it's mac"
 //            installerType = 'pkg'
-            identity {'app'}
+            identifier = 'app'
+
             installerOptions
                     = ["--verbose",
                     '--mac-sign',
