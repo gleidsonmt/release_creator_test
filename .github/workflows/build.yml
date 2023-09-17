@@ -40,11 +40,11 @@ jobs:
       - name: Build Native Images
         run: ./gradlew jlink -Pserver
 
-#      - name: Pack application
-#        run: ./gradlew packageApp
-
       - name: Pack application
         run: ./gradlew jpackage -Pserver
+
+      - name: Pack application
+        run: ./gradlew packageApp
 
 #      - run: mkdir staging && cp build/installer/* staging
 #      - name: upload build result
@@ -58,13 +58,8 @@ jobs:
 
       - name: List files in the repository
         run: |
-#          ls ${{ github.workspace }}/build/image
-#          ls ${{ github.workspace }}/build/jlinkbase
-          ls ${{ github.workspace }}/build/jpackage
           ls ${{ github.workspace }}/build/distributions
-#          ls ${{ github.workspace }}/build/jlinkbase/jlinkjars
-#          ls ${{ github.workspace }}/build/libs
-#          ls ${{ github.workspace }}/staging
+          ls ${{ github.workspace }}/build/jpackage
 
 #      - name: Reading Properties
 #        uses: BrycensRanch/read-properties-action@v1
