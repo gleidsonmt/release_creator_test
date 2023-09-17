@@ -70,7 +70,7 @@ jobs:
           key: ${{ runner.os }}-${{ steps.system_info.outputs.release }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: ${{ runner.os }}-${{ steps.system_info.outputs.release }}-node-
 
-      - run: echo ${{ steps.system_info.outputs }}
+      - run: echo ${{ steps.system_info.outputs.platform }}
 
 #      - name: Create Release
 #        id: create_release
