@@ -4,8 +4,6 @@ name: Java Build Test ||
 run-name: Build by ${{ github.actor }} 🧬
 on:
   push:
-    tags:
-      - 'v*'
     branches: [master]
   pull_request:
     branches: [master]
@@ -65,11 +63,14 @@ jobs:
 
       - name: Create Release
         id: create_release
-        uses: elgohr/Github-Release-Action@v4
+        uses: actions/create-release@v1
         env:
-          GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          title: MyRelease
+          tag_name: v${{ steps.version.outputs.majorVersion }}.${{ steps.version.outputs.minorVersion }}.${{ steps.version.outputs.buildNumber }}
+          release_name: ${{ steps.version.outputs.buildNumber}}
+          draft: false
+          prerelease: false
 
 #      - name: Upload Release Asset
 #        id: upload-release-asset
