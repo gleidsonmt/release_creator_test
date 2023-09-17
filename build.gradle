@@ -124,12 +124,13 @@ jlink {
             installerOptions
                     = ["--verbose",
                     '--mac-sign',
-                    "--mac-package-identifier",
-                    "Gleidson",
-                    "--vendor", "Gleidson Neves da Silveira",
-                    " --mac-package-name JabRef", "Gleidson",
-                    "--type", "dmg",
-                    "--mac-signing-key-user-name", "JabRef e.V. (6792V39SK3)"
+                    '--type', 'pkg',
+//                    "--mac-package-identifier",
+//                    "Gleidson",
+//                    "--vendor", "Gleidson Neves da Silveira",
+//                    " --mac-package-name JabRef", "Gleidson",
+
+//                    "--mac-signing-key-user-name", "JabRef e.V. (6792V39SK3)"
 
 
             ]
