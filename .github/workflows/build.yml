@@ -24,42 +24,42 @@ jobs:
     #        os: [ubuntu-latest, windows-latest]
 
     steps:
-      - uses: actions/checkout@v3
+#      - uses: actions/checkout@v3
+#
+#      - name: Set up JDK 17
+#        uses: actions/setup-java@v1
+#        with:
+#          java-version: 17.0.1
 
-      - name: Set up JDK 17
-        uses: actions/setup-java@v1
-        with:
-          java-version: 17.0.1
-
-      - name: Grant execute permission for gradlew
-        run: chmod +x gradlew
-
-      - name: Build with gradle
-        run: ./gradlew build -Pserver
-
-      - name: Build Native Images
-        run: ./gradlew jlink -Pserver
-
-      - name: Pack application
-        run: ./gradlew jpackage -Pserver
-
-      - name: Create Zip File From App and Runtime
-        run: ./gradlew packageApp -Pserver
-
-      - name: List files in the repository
-        run: |
-          ls ${{ github.workspace }}/build
-
-      - name: Reading Properties
-        uses: BrycensRanch/read-properties-action@v1
-        id: version
-        with:
-          file: version.properties
-          all: true
-
-      - run: echo ${{ steps.version.outputs.majorVersion }} # Project's version from gradle.properties
-      - run: echo ${{ steps.version.outputs.minorVersion }} # Project's groupID from gradle.properties
-      - run: echo ${{ steps.version.outputs.buildNumber }} # Project's groupID from gradle.properties
+#      - name: Grant execute permission for gradlew
+#        run: chmod +x gradlew
+#
+#      - name: Build with gradle
+#        run: ./gradlew build -Pserver
+#
+#      - name: Build Native Images
+#        run: ./gradlew jlink -Pserver
+#
+#      - name: Pack application
+#        run: ./gradlew jpackage -Pserver
+#
+#      - name: Create Zip File From App and Runtime
+#        run: ./gradlew packageApp -Pserver
+#
+#      - name: List files in the repository
+#        run: |
+#          ls ${{ github.workspace }}/build
+#
+#      - name: Reading Properties
+#        uses: BrycensRanch/read-properties-action@v1
+#        id: version
+#        with:
+#          file: version.properties
+#          all: true
+#
+#      - run: echo ${{ steps.version.outputs.majorVersion }} # Project's version from gradle.properties
+#      - run: echo ${{ steps.version.outputs.minorVersion }} # Project's groupID from gradle.properties
+#      - run: echo ${{ steps.version.outputs.buildNumber }} # Project's groupID from gradle.properties
 
 
       - uses: kenchan0130/actions-system-info@master
@@ -70,27 +70,28 @@ jobs:
           key: ${{ runner.os }}-${{ steps.system_info.outputs.release }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: ${{ runner.os }}-${{ steps.system_info.outputs.release }}-node-
 
+      - run: echo ${{ steps.system_info.outputs }}
 
-      - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: v${{ steps.version.outputs.majorVersion }}.${{ steps.version.outputs.minorVersion }}.${{ steps.version.outputs.buildNumber }}
-          release_name: Release ${{ steps.system_info.outputs.release }} v${{ steps.version.outputs.majorVersion }}.${{ steps.version.outputs.minorVersion }}.${{ steps.version.outputs.buildNumber }}
-          draft: false
-          prerelease: false
-          body_path: Release.txt
-
-
-      - name: Upload Release Asset
-        id: upload-release-asset
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps
-          asset_path: ${{ github.workspace }}/build/distributions/app-win.zip
-          asset_name: app-win.zip
-          asset_content_type: application/zip
+#      - name: Create Release
+#        id: create_release
+#        uses: actions/create-release@v1
+#        env:
+#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#        with:
+#          tag_name: v${{ steps.version.outputs.majorVersion }}.${{ steps.version.outputs.minorVersion }}.${{ steps.version.outputs.buildNumber }}
+#          release_name: Release ${{ steps.system_info.outputs.release }} v${{ steps.version.outputs.majorVersion }}.${{ steps.version.outputs.minorVersion }}.${{ steps.version.outputs.buildNumber }}
+#          draft: false
+#          prerelease: false
+#          body_path: Release.txt
+#
+#
+#      - name: Upload Release Asset
+#        id: upload-release-asset
+#        uses: actions/upload-release-asset@v1
+#        env:
+#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#        with:
+#          upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps
+#          asset_path: ${{ github.workspace }}/build/distributions/app-win.zip
+#          asset_name: app-win.zip
+#          asset_content_type: application/zip
