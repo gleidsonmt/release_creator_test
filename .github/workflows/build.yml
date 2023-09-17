@@ -20,7 +20,7 @@ jobs:
       matrix:
         #        os: [windows-latest, ubuntu-latest, macos-latest]
 #        os: [windows-latest, ubuntu-latest]
-            os: [macos-latest]
+            os: [ubuntu-latest]
     #        os: [ubuntu-latest, windows-latest]
 
     steps:
@@ -41,7 +41,7 @@ jobs:
         run: ./gradlew jlink -Pserver
 
       - name: Pack application
-        run: ./gradlew packageApp -Pserver
+        run: ./gradlew packageApp
 
 #      - name: Create Zip File From App and Runtime
 #        run: ./gradlew packageApp -Pserver
