@@ -33,6 +33,20 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "gleidsonmt"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="f8f5480e-d461-4896-bbdc-fd3435e859ec" />
+        <option name="url" value="https://github.com/gleidsonmt/release_creator_test.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
   <component name="ProjectColorInfo"><![CDATA[{
   "associatedIndex": 0
 }]]></component>
@@ -188,22 +202,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1694894481762</updated>
-    </task>
-    <task id="LOCAL-00037" summary="testing automatic releases">
-      <option name="closed" value="true" />
-      <created>1694905655853</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1694905655853</updated>
-    </task>
-    <task id="LOCAL-00038" summary="testing automatic releases">
-      <option name="closed" value="true" />
-      <created>1694905901045</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1694905901045</updated>
     </task>
     <task id="LOCAL-00039" summary="testing automatic releases">
       <option name="closed" value="true" />
@@ -581,7 +579,23 @@
       <option name="project" value="LOCAL" />
       <updated>1694926161893</updated>
     </task>
-    <option name="localTasksCounter" value="86" />
+    <task id="LOCAL-00086" summary="testing automatic releases">
+      <option name="closed" value="true" />
+      <created>1694926558424</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1694926558424</updated>
+    </task>
+    <task id="LOCAL-00087" summary="testing automatic releases">
+      <option name="closed" value="true" />
+      <created>1694926594904</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1694926594904</updated>
+    </task>
+    <option name="localTasksCounter" value="88" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
