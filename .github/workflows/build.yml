@@ -82,7 +82,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: linux-v${{ steps.version.outputs.majorVersion }}.${{ steps.version.outputs.minorVersion }}.${{ steps.version.outputs.buildNumber }}
+          tag_name: ${{ steps.system_info.outputs.platform }}-v${{ steps.version.outputs.majorVersion }}.${{ steps.version.outputs.minorVersion }}.${{ steps.version.outputs.buildNumber }}
           release_name: Release ${{ steps.system_info.outputs.platform }} v${{ steps.version.outputs.majorVersion }}.${{ steps.version.outputs.minorVersion }}.${{ steps.version.outputs.buildNumber }}
           draft: false
           prerelease: false
