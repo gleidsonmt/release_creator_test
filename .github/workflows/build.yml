@@ -71,8 +71,8 @@ jobs:
           release_name: Release v${{ steps.version.outputs.majorVersion }}.${{ steps.version.outputs.minorVersion }}.${{ steps.version.outputs.buildNumber }}
           draft: false
           prerelease: false
-          description: 'Text describing the contents of the tag.'
-          required: false
+          body_path: Release.txt
+
 
       - name: Upload Release Asset
         id: upload-release-asset
