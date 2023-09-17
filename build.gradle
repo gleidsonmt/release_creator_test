@@ -47,9 +47,9 @@ test {
 jlink {
     imageZip = project.file("${buildDir}/distributions/app-${javafx.platform.classifier}.zip")
     options = ['--strip-debug', '--compress', '2', '--no-header-files', '--no-man-pages']
-    var appName = 'app'
+
     launcher {
-        name = appName
+        name = 'app'
     }
 
 
@@ -76,7 +76,7 @@ jlink {
             println "it's linux"
         } else if(System.properties['os.name'].toLowerCase().contains('mac')) {
             println "it's mac"
-            installerOptions = ["--identifier", appName]
+            installerOptions = ["--identifier", 'app']
 //            identifier = appName
         }
 
