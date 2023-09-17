@@ -71,6 +71,8 @@ jobs:
           restore-keys: ${{ runner.os }}-${{ steps.system_info.outputs.release }}-node-
 
       - run: echo ${{ steps.system_info.outputs.platform }}
+      - run: echo ${{ steps.system_info.outputs.release }}
+      - run: echo ${{ steps.system_info.outputs.name }}
 
 #      - name: Create Release
 #        id: create_release
