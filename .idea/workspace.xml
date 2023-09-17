@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="33aac491-18a5-4881-9199-2b686a7d0bff" name="Changes" comment="testing automatic releases">
-      <change beforePath="$PROJECT_DIR$/version.properties" beforeDir="false" afterPath="$PROJECT_DIR$/version.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/build.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/build.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -204,38 +205,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1694894481762</updated>
-    </task>
-    <task id="LOCAL-00055" summary="testing automatic releases">
-      <option name="closed" value="true" />
-      <created>1694915476705</created>
-      <option name="number" value="00055" />
-      <option name="presentableId" value="LOCAL-00055" />
-      <option name="project" value="LOCAL" />
-      <updated>1694915476706</updated>
-    </task>
-    <task id="LOCAL-00056" summary="testing automatic releases">
-      <option name="closed" value="true" />
-      <created>1694915644156</created>
-      <option name="number" value="00056" />
-      <option name="presentableId" value="LOCAL-00056" />
-      <option name="project" value="LOCAL" />
-      <updated>1694915644156</updated>
-    </task>
-    <task id="LOCAL-00057" summary="testing automatic releases">
-      <option name="closed" value="true" />
-      <created>1694916048381</created>
-      <option name="number" value="00057" />
-      <option name="presentableId" value="LOCAL-00057" />
-      <option name="project" value="LOCAL" />
-      <updated>1694916048381</updated>
-    </task>
-    <task id="LOCAL-00058" summary="testing automatic releases">
-      <option name="closed" value="true" />
-      <created>1694917069117</created>
-      <option name="number" value="00058" />
-      <option name="presentableId" value="LOCAL-00058" />
-      <option name="project" value="LOCAL" />
-      <updated>1694917069117</updated>
     </task>
     <task id="LOCAL-00059" summary="testing automatic releases">
       <option name="closed" value="true" />
@@ -597,7 +566,39 @@
       <option name="project" value="LOCAL" />
       <updated>1694959365291</updated>
     </task>
-    <option name="localTasksCounter" value="104" />
+    <task id="LOCAL-00104" summary="testing automatic releases">
+      <option name="closed" value="true" />
+      <created>1694959611470</created>
+      <option name="number" value="00104" />
+      <option name="presentableId" value="LOCAL-00104" />
+      <option name="project" value="LOCAL" />
+      <updated>1694959611470</updated>
+    </task>
+    <task id="LOCAL-00105" summary="testing automatic releases">
+      <option name="closed" value="true" />
+      <created>1694959704089</created>
+      <option name="number" value="00105" />
+      <option name="presentableId" value="LOCAL-00105" />
+      <option name="project" value="LOCAL" />
+      <updated>1694959704089</updated>
+    </task>
+    <task id="LOCAL-00106" summary="testing automatic releases">
+      <option name="closed" value="true" />
+      <created>1694959787273</created>
+      <option name="number" value="00106" />
+      <option name="presentableId" value="LOCAL-00106" />
+      <option name="project" value="LOCAL" />
+      <updated>1694959787273</updated>
+    </task>
+    <task id="LOCAL-00107" summary="testing automatic releases">
+      <option name="closed" value="true" />
+      <created>1694959886855</created>
+      <option name="number" value="00107" />
+      <option name="presentableId" value="LOCAL-00107" />
+      <option name="project" value="LOCAL" />
+      <updated>1694959886855</updated>
+    </task>
+    <option name="localTasksCounter" value="108" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
