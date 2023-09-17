@@ -45,6 +45,8 @@ test {
 }
 
 jlink {
+    addExtraDependencies("javafx")
+
     imageZip = project.file("${buildDir}/distributions/app-${javafx.platform.classifier}.zip")
     options = ['--strip-debug', '--compress', '2', '--no-header-files', '--no-man-pages']
 
@@ -52,6 +54,9 @@ jlink {
         name = 'app'
     }
 
+    jpackageHome = System.getenv('BADASS_JLINK_JPACKAGE_HOME')
+    skipInstaller = false
+    identifier = 'app'
 
     jpackage {
 
@@ -76,11 +81,10 @@ jlink {
             println "it's linux"
         } else if(System.properties['os.name'].toLowerCase().contains('mac')) {
             println "it's mac"
-            installerOptions = ["--identifier", 'app']
+//            installerOptions = ["--identifier", 'app']
 //            identifier = appName
         }
 
-        addExtraDependencies("javafx")
     }
 
 }
