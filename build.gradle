@@ -126,7 +126,7 @@ jlink {
             installerOptions
                     = ["--verbose",
                     '--mac-sign',
-                    '--identifier', 'release_creator'
+                    '--identifier', 'creator'
 //                    "--mac-package-identifier",
 //                    "Gleidson",
 //                    "--vendor", "Gleidson Neves da Silveira",
