@@ -121,7 +121,18 @@ jlink {
             ]
         } else if(System.properties['os.name'].toLowerCase().contains('mac')) {
             println "it's mac"
-            installerOptions = ["--verbose", '--mac-sign', "--mac-package-identifier", "Gleidson"]
+            installerOptions
+                    = ["--verbose",
+                    '--mac-sign',
+                    "--mac-package-identifier",
+                    "Gleidson",
+                    "--vendor", "Gleidson Neves da Silveira",
+                    " --mac-package-name JabRef", "Gleidson",
+                    "--type", "dmg",
+                    "--mac-signing-key-user-name", "JabRef e.V. (6792V39SK3)"
+
+
+            ]
 //            identifier = appName
         }
 

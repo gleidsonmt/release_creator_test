@@ -19,8 +19,8 @@ jobs:
     strategy:
       matrix:
         #        os: [windows-latest, ubuntu-latest, macos-latest]
-        os: [windows-latest, ubuntu-latest]
-    #        os: [macos-latest, windows-latest]
+#        os: [windows-latest, ubuntu-latest]
+            os: [macos-latest]
     #        os: [ubuntu-latest, windows-latest]
 
     steps:
@@ -37,18 +37,18 @@ jobs:
       - name: Build with gradle
         run: ./gradlew build -Pserver
 
-#      - name: Build Native Images
-#        run: ./gradlew jlink -Pserver
+      - name: Build Native Images
+        run: ./gradlew jlink -Pserver
+
+      - name: Pack application
+        run: ./gradlew jpackage -Pserver
 #
-#      - name: Pack application
-#        run: ./gradlew jpackage -Pserver
-#
-#      - name: Create Zip File From App and Runtime
-#        run: ./gradlew packageApp -Pserver
+      - name: Create Zip File From App and Runtime
+        run: ./gradlew packageApp -Pserver
 
       - name: List files in the repository
         run: |
-          ls ${{ github.workspace }}/build
+          ls ${{ github.workspace }}/build/jpackage
 
       - name: Reading Properties
         uses: BrycensRanch/read-properties-action@v1
@@ -76,16 +76,16 @@ jobs:
       - run: echo ${{ steps.system_info.outputs.hostname }}
 
 
-      - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: ${{ steps.system_info.outputs.platform }}-v${{ steps.version.outputs.majorVersion }}.${{ steps.version.outputs.minorVersion }}.${{ steps.version.outputs.buildNumber }}
-          release_name: Release ${{ steps.system_info.outputs.platform }} v${{ steps.version.outputs.majorVersion }}.${{ steps.version.outputs.minorVersion }}.${{ steps.version.outputs.buildNumber }}
-          draft: false
-          prerelease: false
+#      - name: Create Release
+#        id: create_release
+#        uses: actions/create-release@v1
+#        env:
+#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#        with:
+#          tag_name: ${{ steps.system_info.outputs.platform }}-v${{ steps.version.outputs.majorVersion }}.${{ steps.version.outputs.minorVersion }}.${{ steps.version.outputs.buildNumber }}
+#          release_name: Release ${{ steps.system_info.outputs.platform }} v${{ steps.version.outputs.majorVersion }}.${{ steps.version.outputs.minorVersion }}.${{ steps.version.outputs.buildNumber }}
+#          draft: false
+#          prerelease: false
 
 #      - name: Upload Release Asset
 #        id: upload-release-asset
