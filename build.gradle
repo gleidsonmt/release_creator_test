@@ -126,7 +126,8 @@ jlink {
 
             installerOptions
                     = ["--verbose",
-                    '--mac-sign',
+//                    '--mac-sign',
+                    '--name', 'app'
 //                    '--type', 'app-image',
 //                    '--mac-signing-key-user-name', 'Gleidson'
 //                    '--identifier', 'app'
