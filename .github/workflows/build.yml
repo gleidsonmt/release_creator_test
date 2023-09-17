@@ -52,14 +52,14 @@ jobs:
 
       - name: Reading Properties
         uses: BrycensRanch/read-properties-action@v1
-        id: all
+        id: version
         with:
           file: version.properties
           all: true
 
-      - run: echo ${{ steps.all.outputs.majorVersion }} # Project's version from gradle.properties
-      - run: echo ${{ steps.all.outputs.minorVersion }} # Project's groupID from gradle.properties
-      - run: echo ${{ steps.all.outputs.buildNumber }} # Project's groupID from gradle.properties
+      - run: echo ${{ steps.version.outputs.majorVersion }} # Project's version from gradle.properties
+      - run: echo ${{ steps.version.outputs.minorVersion }} # Project's groupID from gradle.properties
+      - run: echo ${{ steps.version.outputs.buildNumber }} # Project's groupID from gradle.properties
 
       - name: Create Release
         id: create_release
@@ -67,8 +67,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: v${{ steps.read_property.outputs.buildNumber}}
-          release_name: ${{ steps.read_property.outputs.buildNumber}}
+          tag_name: v${{ steps.version.outputs.buildNumber}}${{ steps.read_property.outputs.buildNumber }}
+          release_name: ${{ steps.version.outputs.buildNumber}}
           draft: false
           prerelease: false
 
