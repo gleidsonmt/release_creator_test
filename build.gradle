@@ -79,6 +79,10 @@ jlink {
             ]
         } else if(System.properties['os.name'].toLowerCase().contains('linux')) {
             println "it's linux"
+            installerOptions += [
+                    '--linux-menu-group', 'Office',
+                    '--linux-shortcut'
+            ]
         } else if(System.properties['os.name'].toLowerCase().contains('mac')) {
             println "it's mac"
             installerOptions = ["--verbose", '--mac-sign', "--mac-package-identifier", "Gleidson"]
