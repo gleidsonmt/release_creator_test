@@ -30,50 +30,55 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 17.0.1
-      - name: Grant execute permission for gradlew
-        run: chmod +x gradlew
 
-      - name: Build with gradle
-        run: ./gradlew build
+#      - name: Grant execute permission for gradlew
+#        run: chmod +x gradlew
+#
+#      - name: Build with gradle
+#        run: ./gradlew build
+#
+#      - name: Build Native Images
+#        run: ./gradlew jlink
+#
+#      - name: Pack application
+#        run: ./gradlew jpackage
+#
+#      - name: Create Zip File From App and Runtime
+#        run: ./gradlew packageApp
+#
+#      - name: List files in the repository
+#        run: |
+#          ls ${{ github.workspace }}/build/jpackage
 
-      - name: Build Native Images
-        run: ./gradlew jlink
-
-      - name: Pack application
-        run: ./gradlew jpackage
-
-      - name: Create Zip File From App and Runtime
-        run: ./gradlew packageApp
-
-      - name: List files in the repository
-        run: |
-          ls ${{ github.workspace }}/build/jpackage
-
-      - name: Read value from properties file
+      - name: Read value from Properties-file
         id: read_property
-        uses: christian-draeger/read-properties@1.1.0
+        uses: Reedyuk/read-properties@v1.0.1
         with:
           path: 'version.properties'
-          properties: 'minorVersion'
+          property: 'minorVersion'
+      - name: Do something with your bumped release version
+        run: echo ${{ steps.read_property.outputs.value }}
+        run: echo ${{ steps.read_property.outputs.minorVersion }}
+          # will print "the value of 'the.key.of.the.property'"
 
-      - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: v${{ steps.read_property.outputs.buildNumber}}
-          release_name: ${{ steps.read_property.outputs.buildNumber}}
-          draft: false
-          prerelease: false
-
-      - name: Upload Release Asset
-        id: upload-release-asset
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps
-          asset_path: ${{ github.workspace }}/build/distributions/app-win-1.0.zip
-          asset_name: app-win-1.0.zip
-          asset_content_type: application/zip
+#      - name: Create Release
+#        id: create_release
+#        uses: actions/create-release@v1
+#        env:
+#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#        with:
+#          tag_name: v${{ steps.read_property.outputs.buildNumber}}
+#          release_name: ${{ steps.read_property.outputs.buildNumber}}
+#          draft: false
+#          prerelease: false
+#
+#      - name: Upload Release Asset
+#        id: upload-release-asset
+#        uses: actions/upload-release-asset@v1
+#        env:
+#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#        with:
+#          upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps
+#          asset_path: ${{ github.workspace }}/build/distributions/app-win-1.0.zip
+#          asset_name: app-win-1.0.zip
+#          asset_content_type: application/zip
