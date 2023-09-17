@@ -55,9 +55,9 @@ jobs:
         uses: Reedyuk/read-properties@v1.0.1
         with:
           path: 'version.properties'
-          property: 'minorVersion'
+          property: 'minorVersion', 'majorVersion'
       - name: Do something with your bumped release version
-        run: echo ${{ steps.read_property.outputs.minorVersion }}
+        run: echo ${{ steps.read_property.outputs.value }}
           # will print "the value of 'the.key.of.the.property'"
 
 #      - name: Create Release
