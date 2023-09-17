@@ -101,48 +101,48 @@ jlink {
                 '--copyright', 'Copyrigth 2022-2023 Gleidson Company'
         ]
 
-//        if (System.properties['os.name'].toLowerCase().contains('windows')) {
-//            println "it's Windows"
-////            imageOptions = [
-////                    '--icon', 'logo_256.ico'
-////            ]
-//            installerType = 'exe'
-//            installerOptions = [
-//                    '--description', "A decorator stage for javafx apps.",
-//                    '--copyright', 'Copyrigth © 2021-2022 GLEIDSON NEVES DA SILVEIRA'
-////                    , '--icon', 'logo_256.ico'
-//
+        if (System.properties['os.name'].toLowerCase().contains('windows')) {
+            println "it's Windows"
+//            imageOptions = [
+//                    '--icon', 'logo_256.ico'
 //            ]
-//        } else if(System.properties['os.name'].toLowerCase().contains('linux')) {
-//            println "it's linux"
-//            installerOptions += [
-//                    '--linux-menu-group', 'Office',
-//                    '--linux-shortcut'
-//            ]
-//        } else if(System.properties['os.name'].toLowerCase().contains('mac')) {
-//            println "it's mac"
-////            installerType = 'pkg'
-////            identifier = 'app'
-//
-//            installerOptions
-//                    = ["--verbose",
-////                    '--mac-sign',
-//                    '--name', 'app'
-////                    '--type', 'app-image',
-////                    '--mac-signing-key-user-name', 'Gleidson'
-////                    '--identifier', 'app'
-////                    "--mac-package-identifier",
-////                    "Gleidson",
-////                    "--vendor", "Gleidson Neves da Silveira",
-////                    " --mac-package-name JabRef", "Gleidson",
-//
-////                    "--mac-signing-key-user-name", "JabRef e.V. (6792V39SK3)"
-//
-//
-//            ]
-//            identifier = appName
-//            addExtraDependencies("javafx")
-//        }
+            installerType = 'exe'
+            installerOptions = [
+                    '--description', "A decorator stage for javafx apps.",
+                    '--copyright', 'Copyrigth © 2021-2022 GLEIDSON NEVES DA SILVEIRA'
+//                    , '--icon', 'logo_256.ico'
+
+            ]
+        } else if(System.properties['os.name'].toLowerCase().contains('linux')) {
+            println "it's linux"
+            installerOptions += [
+                    '--linux-menu-group', 'Office',
+                    '--linux-shortcut'
+            ]
+        } else if(System.properties['os.name'].toLowerCase().contains('mac')) {
+            println "it's mac"
+//            installerType = 'pkg'
+//            identifier = 'app'
+
+            installerOptions
+                    = ["--verbose",
+                    '--mac-sign', 'false',
+                    '--name', 'app'
+//                    '--type', 'app-image',
+//                    '--mac-signing-key-user-name', 'Gleidson'
+//                    '--identifier', 'app'
+//                    "--mac-package-identifier",
+//                    "Gleidson",
+//                    "--vendor", "Gleidson Neves da Silveira",
+//                    " --mac-package-name JabRef", "Gleidson",
+
+//                    "--mac-signing-key-user-name", "JabRef e.V. (6792V39SK3)"
+
+
+            ]
+            identifier = appName
+            addExtraDependencies("javafx")
+        }
 
     }
 
@@ -160,6 +160,7 @@ def compiler = javaToolchains.compilerFor {
 }
 
 task copyDependencies(type: Copy) {
+    dependsOn 'jlink'
     from(configurations.runtimeClasspath)
     into("$buildDir/libs")
 }
